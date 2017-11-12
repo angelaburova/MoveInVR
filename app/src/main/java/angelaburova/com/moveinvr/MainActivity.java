@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView[] text;
     private String LOG_TAG = "myLog";
     private BroadcastReceiver br;
+    private String flag;
+    private float step;
     private double[] valuesAcc, valuesSpd, valuesDist;
 
 
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        text = new TextView[9];
+        text = new TextView[11];
         text[0] = (TextView) findViewById(R.id.number1);//binding
         text[1] = (TextView) findViewById(R.id.number2);
         text[2] = (TextView) findViewById(R.id.number3);
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         text[6] = (TextView) findViewById(R.id.number7);
         text[7] = (TextView) findViewById(R.id.number8);
         text[8] = (TextView) findViewById(R.id.number9);
+        text[9] = (TextView) findViewById(R.id.number10);
+        text[10] = (TextView) findViewById(R.id.number11);
         valuesAcc = new double[3];
         valuesSpd = new double[3];
         valuesDist = new double[3];
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         filter.addAction("Acceleration");
         filter.addAction("Speed");
         filter.addAction("Distance");
+        filter.addAction("flag0");
+        filter.addAction("step");
         br = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -52,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
                 if (intent.getAction().equals("Distance")) {
                     valuesDist = intent.getDoubleArrayExtra("Data");
                 }
+                if(intent.getAction().equals("flag0"))
+                {
+                    Log.d(LOG_TAG,"flag0");
+                    flag=intent.getStringExtra("Data");
+                }
+                if(intent.getAction().equals("step"))
+                {
+                    step=intent.getFloatExtra("Data",0);
+                }
                 print();
 
             }
@@ -61,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void print() {
-        Log.d(LOG_TAG, "pring");
         text[0].setText("AccX= " + String.valueOf(valuesAcc[0]));
         text[1].setText("AccY= " + String.valueOf(valuesAcc[1]));
         text[2].setText("AccZ= " + String.valueOf(valuesAcc[2]));
@@ -71,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
         text[6].setText("DistX= " + String.valueOf(valuesDist[0]));
         text[7].setText("DistY= " + String.valueOf(valuesDist[1]));
         text[8].setText("DistZ= " + String.valueOf(valuesDist[2]));
-
+        text[9].setText("OK. Calibration finised. You can start moving");
+        text[10].setText("step= " + step);
     }
 
     public Context getCont() {

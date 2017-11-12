@@ -97,5 +97,23 @@
             android:layout_weight="1"
             tools:layout_editor_absoluteX="64dp"
             tools:layout_editor_absoluteY="64dp" />
+        <TextView
+            android:id="@+id/number10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please wait. Calibration"
+            android:textSize="24sp"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="64dp" />
+        <TextView
+            android:id="@+id/number11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="step"
+            android:textSize="24sp"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="64dp" />
     </LinearLayout>
 </LinearLayout>

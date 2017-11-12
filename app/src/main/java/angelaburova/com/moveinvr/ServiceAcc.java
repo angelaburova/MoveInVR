@@ -13,6 +13,8 @@ import android.os.IBinder;
 public class ServiceAcc extends Service {
     private android.hardware.SensorManager SensorManager;
     private Sensor Accelerometer;
+    private Sensor counterStep;
+    private Sensor gravity;
     private XYZAccelerometr acc;
 
 
@@ -31,7 +33,9 @@ public class ServiceAcc extends Service {
     }
 
     public void onResume() {
-        SensorManager.registerListener((SensorEventListener) this, Accelerometer, SensorManager.SENSOR_DELAY_FASTEST);
+        SensorManager.registerListener((SensorEventListener) this, Accelerometer, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener((SensorEventListener) this, counterStep, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener((SensorEventListener) this, gravity, SensorManager.SENSOR_DELAY_GAME);
     }
 
     /*Выполняется когда мы вызываем сервис посредством startSevice*/
@@ -40,11 +44,15 @@ public class ServiceAcc extends Service {
         SensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         acc = new XYZAccelerometr(this);
         Accelerometer = SensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
-        SensorManager.registerListener(acc, Accelerometer, SensorManager.SENSOR_DELAY_FASTEST);
+        counterStep=SensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        gravity=SensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        SensorManager.registerListener(acc, Accelerometer, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, counterStep, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, gravity, SensorManager.SENSOR_DELAY_GAME);
         Notification.Builder builder = new Notification.Builder(this);
         builder.setColor(Color.CYAN);
         startForeground(0x17, builder.build());
-        //stopForeground(true);
+        stopForeground(true);
         return Service.START_STICKY;
     }
 
