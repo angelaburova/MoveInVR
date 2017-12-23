@@ -1,4 +1,4 @@
-package angelaburova.com.moveinvr;
+package angelaburova.com.walkinvr;
 
 import android.app.Notification;
 import android.app.Service;
@@ -12,9 +12,11 @@ import android.os.IBinder;
 
 public class ServiceAcc extends Service {
     private android.hardware.SensorManager SensorManager;
-    private Sensor Accelerometer;
+    private Sensor accelerometerLinear;
+    private Sensor accelerometer;
     private Sensor counterStep;
     private Sensor gravity;
+    private Sensor magnetic;
     private XYZAccelerometr acc;
 
 
@@ -33,9 +35,11 @@ public class ServiceAcc extends Service {
     }
 
     public void onResume() {
-        SensorManager.registerListener((SensorEventListener) this, Accelerometer, SensorManager.SENSOR_DELAY_GAME);
-        SensorManager.registerListener((SensorEventListener) this, counterStep, SensorManager.SENSOR_DELAY_GAME);
-        SensorManager.registerListener((SensorEventListener) this, gravity, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, accelerometerLinear, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, counterStep, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, gravity, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, accelerometer, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, magnetic, SensorManager.SENSOR_DELAY_GAME);
     }
 
     /*Выполняется когда мы вызываем сервис посредством startSevice*/
@@ -43,12 +47,16 @@ public class ServiceAcc extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         SensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         acc = new XYZAccelerometr(this);
-        Accelerometer = SensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+        accelerometerLinear = SensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         counterStep=SensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         gravity=SensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
-        SensorManager.registerListener(acc, Accelerometer, SensorManager.SENSOR_DELAY_GAME);
+        accelerometer = SensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        magnetic = SensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        SensorManager.registerListener(acc, accelerometerLinear, SensorManager.SENSOR_DELAY_GAME);
         SensorManager.registerListener(acc, counterStep, SensorManager.SENSOR_DELAY_GAME);
         SensorManager.registerListener(acc, gravity, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, accelerometer, SensorManager.SENSOR_DELAY_GAME);
+        SensorManager.registerListener(acc, magnetic, SensorManager.SENSOR_DELAY_GAME);
         Notification.Builder builder = new Notification.Builder(this);
         builder.setColor(Color.CYAN);
         startForeground(0x17, builder.build());

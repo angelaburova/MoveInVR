@@ -4,8 +4,8 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.2"
     defaultConfig {
-        applicationId "angelaburova.com.moveinvr"
-        minSdkVersion 23
+        applicationId "angelaburova.com.walkinvr"
+        minSdkVersion 24
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"

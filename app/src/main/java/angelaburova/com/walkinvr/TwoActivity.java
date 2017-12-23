@@ -1,4 +1,4 @@
-package angelaburova.com.moveinvr;
+package angelaburova.com.walkinvr;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,21 +9,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import angelaburova.com.moveinvr.R;
 
-public class MainActivity extends AppCompatActivity {
+
+public class TwoActivity extends AppCompatActivity {
 
     private TextView[] text;
     private String LOG_TAG = "myLog";
     private BroadcastReceiver br;
     private String flag;
     private float step;
-    private double[] valuesAcc, valuesSpd, valuesDist;
-
+    private double[] valuesAcc, valuesSpd;
+    private long[] valueDist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_two);
+
         text = new TextView[11];
         text[0] = (TextView) findViewById(R.id.number1);//binding
         text[1] = (TextView) findViewById(R.id.number2);
@@ -38,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         text[10] = (TextView) findViewById(R.id.number11);
         valuesAcc = new double[3];
         valuesSpd = new double[3];
-        valuesDist = new double[3];
+        valueDist = new long[3];
+
 
         IntentFilter filter = new IntentFilter();
         filter.addAction("Acceleration");
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     valuesSpd = intent.getDoubleArrayExtra("Data");
                 }
                 if (intent.getAction().equals("Distance")) {
-                    valuesDist = intent.getDoubleArrayExtra("Data");
+                    valueDist = intent.getLongArrayExtra("Data");
                 }
                 if(intent.getAction().equals("flag0"))
                 {
@@ -72,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         registerReceiver(br, filter);
-        startService(new Intent(this, ServiceAcc.class));
+
+
+
     }
 
     public void print() {
@@ -82,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
         text[3].setText("SpeedX= " + String.valueOf(valuesSpd[0]));
         text[4].setText("SpeedY= " + String.valueOf(valuesSpd[1]));
         text[5].setText("SpeedZ= " + String.valueOf(valuesSpd[2]));
-        text[6].setText("DistX= " + String.valueOf(valuesDist[0]));
-        text[7].setText("DistY= " + String.valueOf(valuesDist[1]));
-        text[8].setText("DistZ= " + String.valueOf(valuesDist[2]));
+        text[6].setText("OrientXY= " + String.valueOf(valueDist[0]));
+        text[7].setText("OrientXZ= " + String.valueOf(valueDist[1]));
+        text[8].setText("OrientZY= " + String.valueOf(valueDist[2]));
         text[9].setText("OK. Calibration finised. You can start moving");
         text[10].setText("step= " + step);
     }
@@ -105,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -114,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         }
         stopService(new Intent(this, ServiceAcc.class));
     }
+
 
 
 }

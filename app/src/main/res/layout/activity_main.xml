@@ -1,119 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="angelaburova.com.moveinvr.MainActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-    <TextView
-        android:id="@+id/number1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello1"
-        android:textSize="24sp"
-        android:layout_weight="1"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintVertical_bias="0.032"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp" />
+    android:background="@drawable/background">
 
-    <TextView
-        android:id="@+id/number2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Hello2"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="64dp" />
 
-    <TextView
-        android:id="@+id/number3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello3"
-        android:textSize="24sp"
-        android:layout_weight="1"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="0p" />
+    <Button
+        android:id="@+id/btnStart"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="234dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
 
-    <TextView
-        android:id="@+id/number4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello4"
-        android:textSize="24sp"
-        android:layout_weight="1"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="64dp" />
-        <TextView
-        android:id="@+id/number5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello5"
-        android:textSize="24sp"
-        android:layout_weight="1"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="64dp" />
-        <TextView
-            android:id="@+id/number6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello6"
-            android:textSize="24sp"
-            android:layout_weight="1"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="64dp" />
-        <TextView
-            android:id="@+id/number7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello7"
-            android:textSize="24sp"
-            android:layout_weight="1"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="64dp" />
-        <TextView
-            android:id="@+id/number8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello8"
-            android:textSize="24sp"
-            android:layout_weight="1"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="64dp" />
-        <TextView
-            android:id="@+id/number9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello9"
-            android:textSize="24sp"
-            android:layout_weight="1"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="64dp" />
-        <TextView
-            android:id="@+id/number10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Please wait. Calibration"
-            android:textSize="24sp"
-            android:layout_weight="1"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="64dp" />
-        <TextView
-            android:id="@+id/number11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="step"
-            android:textSize="24sp"
-            android:layout_weight="1"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="64dp" />
-    </LinearLayout>
-</LinearLayout>
+        android:onClick="buttonStartClick"
+        android:text=" S T A R T"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        android:src="@drawable/ripple">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnCalibr"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+
+        android:onClick="buttonSettClick"
+        android:text="S E T T I N G S"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnStart"
+        app:layout_constraintVertical_bias="0.273"
+        android:src="@drawable/ripple">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnSett"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:onClick="buttonQuitClick"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnStart"
+        app:layout_constraintVertical_bias="0.562"
+        android:src="@drawable/ripple">
+    </Button>
+
+</android.support.constraint.ConstraintLayout>
