@@ -1,9 +1,6 @@
 package angelaburova.com.walkinvr;
 
-/**
- * Created by angelaburova on 28.10.2017.
- */
-
+// Class for data storage 3 measures
 public class Point<T extends Number> {
 
     private T x,y,z;
@@ -14,6 +11,7 @@ public class Point<T extends Number> {
         this.z=z;
     }
 
+    //get values
     public T getX()
     {
         return this.x;
@@ -26,6 +24,7 @@ public class Point<T extends Number> {
     {
         return this.z;
     }
+    //summ x
     public void writeAddX(T x)
     {
         if(x instanceof Integer)
@@ -36,6 +35,7 @@ public class Point<T extends Number> {
             this.x= (T) (Float.valueOf(this.x.floatValue() + x.floatValue()));
 
     }
+    //summ y
     public void writeAddY(T y)
     {
         if(y instanceof Integer)
@@ -45,6 +45,8 @@ public class Point<T extends Number> {
         else if(y instanceof Float)
             this.y= (T) (Float.valueOf(this.y.floatValue() + y.floatValue()));
     }
+
+    //summ z
     public void writeAddZ(T z)
     {
         if(z instanceof Integer)
@@ -55,6 +57,7 @@ public class Point<T extends Number> {
             this.z= (T) (Float.valueOf(this.z.floatValue() + z.floatValue()));
     }
 
+    //summ all
     public void writeAdd(T x,T y,T z)
     {
         writeAddX(x);
@@ -62,6 +65,7 @@ public class Point<T extends Number> {
         writeAddZ(z);
     }
 
+    //set values
     public void setX(T x)
     {
         this.x=x;
@@ -74,6 +78,7 @@ public class Point<T extends Number> {
     {
         this.z=z;
     }
+    //Set all
     public void set(T x,T y, T z)
     {
         setX(x);

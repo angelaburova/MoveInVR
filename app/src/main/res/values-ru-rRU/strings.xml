@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Прогулка в VR</string>
+    <string name="butt1">С Т А Р Т</string>
+    <string name="butt2">Н А С Т Р О Й К И</string>
+    <string name="butt3">В Ы Х О Д</string>
+    <string name="header">Н А С Т Р О Й К И</string>
+    <string name="sound">ЗВУКИ</string>
+    <string name="music">МУЗЫКА</string>
+    <string name="lang">ЯЗЫК</string>
+    <string name="menu">М Е Н Ю</string>
+    <string name="calibration">КАЛИБРОВКА</string>
+    <string name="description">Пожалуйста, положите свой телефон на плоскую поверхность и нажмите ОК</string>
+    <string name="waiting">Пожалуйста, подождите...</string>
+</resources>

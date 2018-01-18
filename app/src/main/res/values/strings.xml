@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Walk in VR</string>
+    <string name="butt1">S T A R T</string>
+    <string name="butt2">S E T T I N G S</string>
+    <string name="butt3">Q U I T</string>
+    <string name="header">S E T T I N G S</string>
+    <string name="sound">SOUND</string>
+    <string name="music">MUSIC</string>
+    <string name="lang">LANGUAGE</string>
+    <string name="menu">M E N U</string>
+    <string name="calibration">CALIBRATION</string>
+    <string name="description">Please, put your phone on a table and press OK.</string>
+    <string name="waiting">Please, wait</string>
 </resources>

@@ -13,45 +13,21 @@
         android:id="@+id/btnStart"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="234dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-
         android:onClick="buttonStartClick"
-        android:text=" S T A R T"
+        android:src="@drawable/ripple"
+        android:text="@string/butt1"
         android:textColor="@android:color/white"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
-        android:src="@drawable/ripple">
-
-    </Button>
-
-    <Button
-        android:id="@+id/btnCalibr"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-
-        android:onClick="buttonSettClick"
-        android:text="S E T T I N G S"
-        android:textColor="@android:color/white"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnStart"
-        app:layout_constraintVertical_bias="0.273"
-        android:src="@drawable/ripple">
+        app:layout_constraintVertical_bias="0.585">
 
     </Button>
 
@@ -59,20 +35,43 @@
         android:id="@+id/btnSett"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="300dp"
-        android:layout_height="55dp"
+        android:layout_height="65dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        android:onClick="buttonQuitClick"
+        android:layout_marginTop="8dp"
+        android:onClick="buttonSettingsClick"
+        android:src="@drawable/ripple"
+        android:text="@string/butt2"
         android:textColor="@android:color/white"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnStart"
-        app:layout_constraintVertical_bias="0.562"
-        android:src="@drawable/ripple">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.765">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnQuit"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:text="@string/butt3"
+        android:onClick="buttonQuitClick"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:src="@drawable/ripple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.945">
     </Button>
 
 </android.support.constraint.ConstraintLayout>
